@@ -23,4 +23,3 @@
 --     servicio VARCHAR(40),
 --     FOREIGN KEY (id_tipo) REFERENCES Hospital(id_tipo)
 -- );
-CREATE TABLE Consecionado 
