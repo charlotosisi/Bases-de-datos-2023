@@ -23,3 +23,17 @@
 --     servicio VARCHAR(40),
 --     FOREIGN KEY (id_tipo) REFERENCES Hospital(id_tipo)
 -- );
+-- Analisis del Modelo Relacional de BD en Hospital Pregunta 1 Tarea 1.
+-- Entidades: Hospital, Poliza, Propio, Concesionado, Asegurados, Zonas, Medico.  
+-- Relaciones: 
+-- -Hospitales pueden ser Propios o Concesionados.
+-- -Una poliza cubre varios asegurados,
+-- -Los asegurados cubiertos por una misma poliza pueden ser de distintas categorias.
+-- -Los de primera categoria pueden ser hospitalizados en cualquier hospital.
+-- -Los de segunda categoria pueden ser solo hospitalizados en hospitales propios.
+-- -Las otras categorias no tienen derecho a hospitalizacion, se requiere guardar todos los asegurados.
+-- -Saber en que hospitales han estado hospitalizados los asegurados, el medico, fechas de inicio y fin de la misma.
+-- -Los hospitales concesionados tienen que estas asegurados a una unica area.
+-- -Los hospitales propios no estan asignados a areas.
+-- -Los medicos tienen un unico jefe.
+
