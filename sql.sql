@@ -81,8 +81,8 @@ CREATE TABLE Medico(
     id_medico INT PRIMARY KEY NOT NULL,
     nombre VARCHAR(40) NOT NULL,
     telefono_contacto INT NOT NULL,
-    id_jefe INT NOT NULL
-    -- FOREIGN (id_jefe) REFERENCES Medico(id_medico) 
+    id_jefe INT NOT NULL,
+    FOREIGN KEY (id_jefe) REFERENCES Medico(id_medico) ON DELETE SET NULL
 );
 
 -- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
