@@ -14,9 +14,9 @@ DROP TABLE IF EXISTS Medico;
 -- Tabla entidad Hospital: listo
 CREATE TABLE Hospital(
     codigo_hospt INT PRIMARY KEY NOT NULL,
-    name_hospt VARCHAR(40) NOT NULL,
+    name_hospt VARCHAR(40),
     numero_camas INT NOT NULL,
-    tipo_servicio VARCHAR(40) NOT NULL -- (si es propio o concesionado)
+    tipo_hospital TEXT NOT NULL -- (si es propio o concesionado)
 
 );
 
@@ -24,16 +24,18 @@ CREATE TABLE Hospital(
 CREATE TABLE HospitalPropio(
     presupuesto INT NOT NULL,
     servicio VARCHAR(40) NOT NULL,
-    codigo_hospt INT PRIMARY KEY NOT NULL,
-    FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt) 
-
+    codigo_hospt INT PRIMARY KEY NOT NULL,    
+    FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt)
+    
 );
+
 -- Tabla Hospital Concesionado
 CREATE TABLE HospitalConcesionado(
     codigo_zona INT PRIMARY KEY NOT NULL,
     codigo_hospt INT NOT NULL,
     FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt),
     FOREIGN KEY (codigo_zona) REFERENCES Zonas(codigo_zona)
+    
 
 );
 
