@@ -1,4 +1,3 @@
-
 DROP TABLE IF EXISTS Hospital;
 DROP TABLE IF EXISTS HospitalPropio ;
 DROP TABLE IF EXISTS Poliza;
@@ -43,7 +42,7 @@ CREATE TABLE HospitalConcesionado(
 CREATE TABLE Poliza(
     id_poliza INT PRIMARY KEY NOT NULL,
     nombre_poliza VARCHAR(40) NOT NULL,
-    name_poliza VARCHAR(40) NOT NULL
+    categoria  VARCHAR(20) NOT NULL
     
 );
 
@@ -52,7 +51,7 @@ CREATE TABLE Asegurados(
     id_asegurado INT PRIMARY KEY NOT NULL,
     id_poliza INT,
     nombre VARCHAR(40),
-    fecha_nacimiento VARCHAR(40),
+    fecha_nacimiento DATE,
     categoria VARCHAR(40),
     FOREIGN KEY (id_poliza) REFERENCES Poliza(id_poliza)  
    
@@ -60,15 +59,15 @@ CREATE TABLE Asegurados(
 -- Tabla categoria primaria
 CREATE TABLE CAT_P(
     codigo_hospt INT NOT NULL,
-    FOREIGN KEY (codigo_hospt) REFERENCES Hospital(id_hospt)
+    FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt)
 
 );
 -- Tabla categoria secundaria
 CREATE TABLE CAT_S(
-    id_hospt int NOT NULL,
+    codigo_hospt int NOT NULL,
     codigo_zona INT NOT NULL,
     FOREIGN KEY (codigo_zona) REFERENCES Zonas(codigo_zona),
-    FOREIGN KEY (id_hospt) REFERENCES HospitalPropio(id_hospt)
+    FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt)
 
 );
 -- Tabla zonas
