@@ -74,7 +74,7 @@ CREATE TABLE CAT_P(
 );
 -- Tabla categoria secundaria
 CREATE TABLE CAT_S(
-    codigo_hospt int NOT NULL,
+    codigo_hospt INT NOT NULL,
     codigo_zona INT NOT NULL,
     FOREIGN KEY (codigo_zona) REFERENCES Zonas(codigo_zona),
     FOREIGN KEY (codigo_hospt) REFERENCES Hospital(codigo_hospt)

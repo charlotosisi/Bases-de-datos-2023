@@ -48,7 +48,7 @@ CREATE TABLE Proveedor(
 -- Entidad Categoria
 CREATE TABLE Categoria(
     id_categoria INT PRIMARY KEY NOT NULL,
-    descripcion TEXT
+    descripcion TEXT NOT NULL
 
 );
 
@@ -58,18 +58,19 @@ CREATE TABLE Producto (
     id_proveedor INT,
     id_producto INT PRIMARY KEY NOT NULL,
     id_categoria INT,
+    precio INT NOT NULL,    
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria),
     FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id_proveedor)
 );
 
 
--- Relacion Inventario
+-- Entidad Inventario
 CREATE TABLE Inventario(
     id_sucursal INT,
     id_proveedor INT,
     id_producto INT,
     id_categoria INT,
-    cantidad_producto INT,
+    cantidad_producto INT NOT NULL,
     FOREIGN KEY (id_sucursal) REFERENCES Sucursal(id_sucursal),
     FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id_proveedor),
     FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
@@ -80,6 +81,7 @@ CREATE TABLE Inventario(
 
 -- Entidad Compra
 CREATE TABLE Compra (
+    id_compra INT PRIMARY KEY NOT NULL,
     id_producto INT,
     id_cliente INT,
     id_empleado INT,
@@ -100,52 +102,4 @@ CREATE TABLE Compra (
 
 
 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
--- 
 
